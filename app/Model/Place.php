@@ -1,30 +1,23 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Station Model
+ * Place Model
  *
- * @property Place $Place
+ * @property Station $Station
  */
-class Station extends AppModel {
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'title';
+class Place extends AppModel {
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * hasOne associations
+ * belongsTo associations
  *
  * @var array
  */
-	public $hasMany = array(
-		'Place' => array(
-			'className' => 'Place',
+	public $belongsTo = array(
+		'Station' => array(
+			'className' => 'Station',
 			'foreignKey' => 'station_id',
 			'conditions' => '',
 			'fields' => '',
