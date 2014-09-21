@@ -1,0 +1,46 @@
+2014-09-20 18:22:28 Error: Fatal Error (4): syntax error, unexpected end of file in [/vagrant/CakeMetoro/app/Config/bootstrap.php, line 112]
+2014-09-20 18:22:28 Error: [FatalErrorException] syntax error, unexpected end of file
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/vagrant/CakeMe...', 112)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/vagrant/CakeMe...', 112, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/vagrant/CakeMe...', 112, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-09-20 18:26:03 Error: Fatal Error (1): Undefined class constant 'loadAll' in [/vagrant/CakeMetoro/app/Config/bootstrap.php, line 109]
+2014-09-20 18:26:03 Error: [FatalErrorException] Undefined class constant 'loadAll'
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Undefined class...', '/vagrant/CakeMe...', 109)
+#1 [internal function]: ErrorHandler::handleError(1, 'Undefined class...', '/vagrant/CakeMe...', 109, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Undefined class...', '/vagrant/CakeMe...', 109, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-09-20 18:26:25 Error: Fatal Error (4): syntax error, unexpected '(' in [/vagrant/CakeMetoro/app/Config/bootstrap.php, line 109]
+2014-09-20 18:26:25 Error: [FatalErrorException] syntax error, unexpected '('
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/vagrant/CakeMe...', 109)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/vagrant/CakeMe...', 109, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/vagrant/CakeMe...', 109, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-09-20 18:26:28 Error: Fatal Error (4): syntax error, unexpected '(' in [/vagrant/CakeMetoro/app/Config/bootstrap.php, line 109]
+2014-09-20 18:26:28 Error: [FatalErrorException] syntax error, unexpected '('
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/vagrant/CakeMe...', 109)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/vagrant/CakeMe...', 109, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/vagrant/CakeMe...', 109, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-09-21 10:11:38 Error: Fatal Error (1): Class 'PDO' not found in [/vagrant/CakeMetoro/lib/Cake/Model/Datasource/Database/Mysql.php, line 201]
+2014-09-21 10:11:38 Error: [FatalErrorException] Class 'PDO' not found
+Request URL: /
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'PDO' not...', '/vagrant/CakeMe...', 201)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'PDO' not...', '/vagrant/CakeMe...', 201, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'PDO' not...', '/vagrant/CakeMe...', 201, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
