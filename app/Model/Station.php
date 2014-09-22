@@ -29,6 +29,14 @@ class Station extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
+        'station_0' => array(
+            'className' => 'Fare',
+            'foreignKey' => 'station_0'
+        ),
+        'station_1' => array(
+            'className' => 'Fare',
+            'foreignKey' => 'station_1'
+        )
 	);
 }

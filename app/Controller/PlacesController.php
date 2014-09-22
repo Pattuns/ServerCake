@@ -22,7 +22,8 @@ class PlacesController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Place->recursive = 0;
+		$this->Place->recursive = 1;
+        debug($this->Place->find('all'));
 		$this->set('places', $this->Paginator->paginate());
 	}
 

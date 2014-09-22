@@ -22,7 +22,8 @@ class FaresController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Fare->recursive = 0;
+		$this->Fare->recursive = 1;
+        debug($this->Fare->find('all'));
 		$this->set('fares', $this->Paginator->paginate());
 	}
 
