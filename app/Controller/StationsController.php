@@ -118,8 +118,47 @@ class StationsController extends AppController {
 
     public function compare(){
 
-        echo $_POST['station_0'];
-        echo $_POST['station_1'];
-        debug($this->Station->Fare->find('all'));
+        $stationId_0 = $this->request->data('Station.station_0');
+        $stationId_1 = $this->request->data('Station.station_1');
+
+        $fareInfo = array();
+        $pointInfo = array();
+
+        $pointInfo[] = $this->Station->findById($stationId_0);
+        $pointInfo[] = $this->Station->findById($stationId_1);
+
+        $keys = array('station_0', 'station_1');
+
+        $stationFare_0 = $this->Station->ExtractInfo($pointInfo[0], $keys);
+
+        $stationFare_1 = $this->Station->ExtractInfo($pointInfo[1], $keys);
+
+        foreach($stationFare_0 as $fareInfo_0){
+            $stationPurposeId = $fareInfo_0['station_purpose_id'];
+            $fare = $fareInfo_0['fare'];
+
+            foreach($stationFare_1 as $fareInfo_1){
+                if($stationPurposeId == $fareInfo_1['station_purpose_id'] &&
+                    $fare == $fareInfo_1['fare']){
+                    $fareNameInfo = $this->Station->findById($fareInfo_0['station_purpose_id']);
+                    $fareInfo_0 += array('type' => 'midpoint', 'title' => $fareNameInfo['Station']['title']);
+                    $fareInfo[] = $fareInfo_0;
+                }
+            }
+        }
+
+        // 最低額の取得
+        $minFare = min(array_column($fareInfo, 'fare'));
+        $fare = array_filter($fareInfo, function($fare) use (&$minFare){
+            return $fare['fare'] == $minFare;
+        });
+
+
+        // debug($fareInfo);
+        $this->set('pointInfo' , $pointInfo);
+
+        $this->set('fareInfo' , $fare);
+
+
     }
 }

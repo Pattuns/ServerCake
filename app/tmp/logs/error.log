@@ -289,3 +289,691 @@ Stack Trace:
 #3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2014-09-23 12:07:52 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 12:11:42 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 12:16:30 Error: Fatal Error (1): Call to a member function find() on a non-object in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 124]
+2014-09-23 12:16:30 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/vagrant/CakeMe...', 124)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/vagrant/CakeMe...', 124, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/vagrant/CakeMe...', 124, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-09-23 12:17:56 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'station_0'
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `station...', Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(665): DboSource->execute('SELECT `station...', Array, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `station...', false)
+#4 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2903): DboSource->read(Object(Fare), Array)
+#5 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2875): Model->_readDataSource('all', Array)
+#6 /vagrant/CakeMetoro/app/Controller/StationsController.php(124): Model->find('all')
+#7 [internal function]: StationsController->compare()
+#8 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(StationsController), Array)
+#9 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#11 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-09-23 12:18:49 Error: Fatal Error (1): Call to a member function find() on a non-object in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 124]
+2014-09-23 12:18:49 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/vagrant/CakeMe...', 124)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/vagrant/CakeMe...', 124, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/vagrant/CakeMe...', 124, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-09-23 12:19:10 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'station_0'
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `station...', Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(665): DboSource->execute('SELECT `station...', Array, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `station...', false)
+#4 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2903): DboSource->read(Object(Fare), Array)
+#5 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2875): Model->_readDataSource('all', Array)
+#6 /vagrant/CakeMetoro/app/Controller/StationsController.php(124): Model->find('all')
+#7 [internal function]: StationsController->compare()
+#8 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(StationsController), Array)
+#9 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#11 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-09-23 12:22:56 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 12:23:28 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 12:23:59 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 12:32:30 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 12:33:07 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 12:33:47 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 12:34:20 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 12:34:30 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 12:46:50 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 12:57:05 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 13:50:55 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 13:58:55 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 13:59:10 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 13:59:29 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:00:09 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:08:01 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:08:45 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:18:59 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:20:21 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:22:01 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:25:17 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:25:53 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:26:11 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:26:54 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:32:11 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:32:44 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:34:45 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 141]
+2014-09-23 14:34:45 Error: [FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/vagrant/CakeMe...', 141)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/vagrant/CakeMe...', 141, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/vagrant/CakeMe...', 141, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-09-23 14:35:34 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:40:33 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:42:25 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Station.' in 'field list'
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT DISTINCT...', Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(665): DboSource->execute('SELECT DISTINCT...', Array, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT DISTINCT...', false)
+#4 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2903): DboSource->read(Object(Station), Array)
+#5 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2875): Model->_readDataSource('first', Array)
+#6 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(597): Model->find('first', Array)
+#7 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(800): DboSource->query('findById', Array, Object(Station))
+#8 /vagrant/CakeMetoro/app/Controller/StationsController.php(150): Model->__call('findById', Array)
+#9 /vagrant/CakeMetoro/app/Controller/StationsController.php(150): Station->findById('59', Array)
+#10 [internal function]: StationsController->compare()
+#11 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(StationsController), Array)
+#12 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#13 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#14 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2014-09-23 14:42:41 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Station.' in 'field list'
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT DISTINCT...', Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(665): DboSource->execute('SELECT DISTINCT...', Array, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT DISTINCT...', false)
+#4 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2903): DboSource->read(Object(Station), Array)
+#5 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2875): Model->_readDataSource('first', Array)
+#6 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(597): Model->find('first', Array)
+#7 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(800): DboSource->query('findById', Array, Object(Station))
+#8 /vagrant/CakeMetoro/app/Controller/StationsController.php(150): Model->__call('findById', Array)
+#9 /vagrant/CakeMetoro/app/Controller/StationsController.php(150): Station->findById('59', Array)
+#10 [internal function]: StationsController->compare()
+#11 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(StationsController), Array)
+#12 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#13 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#14 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2014-09-23 14:43:09 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:44:33 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:45:52 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:46:07 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:46:27 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:47:02 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:47:25 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:49:38 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:50:05 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:50:17 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:53:40 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:54:20 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 14:54:58 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Place.lon' in 'field list'
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `Place`....', Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(665): DboSource->execute('SELECT `Place`....', Array, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `Place`....', false)
+#4 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2903): DboSource->read(Object(Station), Array)
+#5 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2875): Model->_readDataSource('all', Array)
+#6 /vagrant/CakeMetoro/app/Controller/StationsController.php(151): Model->find('all', Array)
+#7 [internal function]: StationsController->compare()
+#8 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(StationsController), Array)
+#9 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#11 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-09-23 14:55:30 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Station.Place.lon' in 'field list'
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `Station...', Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(665): DboSource->execute('SELECT `Station...', Array, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `Station...', false)
+#4 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2903): DboSource->read(Object(Station), Array)
+#5 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2875): Model->_readDataSource('all', Array)
+#6 /vagrant/CakeMetoro/app/Controller/StationsController.php(151): Model->find('all', Array)
+#7 [internal function]: StationsController->compare()
+#8 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(StationsController), Array)
+#9 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#11 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-09-23 14:56:11 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Station.lon' in 'field list'
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `Station...', Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(665): DboSource->execute('SELECT `Station...', Array, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `Station...', false)
+#4 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2903): DboSource->read(Object(Station), Array)
+#5 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2875): Model->_readDataSource('all', Array)
+#6 /vagrant/CakeMetoro/app/Controller/StationsController.php(151): Model->find('all', Array)
+#7 [internal function]: StationsController->compare()
+#8 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(StationsController), Array)
+#9 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#11 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-09-23 14:56:27 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 15:04:08 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-09-23 15:09:58 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/Stations/compare.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/Stations/compare.ctp',
+)
+Request URL: /stations/compare
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
