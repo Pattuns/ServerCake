@@ -44,4 +44,4 @@
 
     // REST用
     Router::mapResources('stations');
-    Router::parseExtensions();
+    Router::parseExtensions('xml');

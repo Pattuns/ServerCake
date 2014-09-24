@@ -14,7 +14,7 @@ class StationsController extends AppController {
      *
      * @var array
      */
-    public $components = array('Paginator', 'Session');
+    public $components = array('Paginator', 'Session','RequestHandler');
 
     /**
      * index method
@@ -24,7 +24,10 @@ class StationsController extends AppController {
     public function index() {
         $this->Station->recursive = 0;
         // debug($this->Station->find('all'));
-        $this->set('stations', $this->Paginator->paginate());
+        // $this->set('stations', $this->Paginator->paginate());
+        $stations = $this->Station->find('all');
+        $this->set(array(
+            'stations' => $stations));
     }
 
     /**
@@ -118,8 +121,8 @@ class StationsController extends AppController {
 
     public function compare(){
 
-        $stationId_0 = $this->request->data('Station.station_0');
-        $stationId_1 = $this->request->data('Station.station_1');
+        $stationId_0 = $this->request->query['station_0'];
+        $stationId_1 = $this->request->query['station_1'];
 
         $fareInfo = array();
         $pointInfo = array();
@@ -141,7 +144,10 @@ class StationsController extends AppController {
                 if($stationPurposeId == $fareInfo_1['station_purpose_id'] &&
                     $fare == $fareInfo_1['fare']){
                     $fareNameInfo = $this->Station->findById($fareInfo_0['station_purpose_id']);
-                    $fareInfo_0 += array('type' => 'midpoint', 'title' => $fareNameInfo['Station']['title']);
+                    $fareInfo_0 += array('type' => 'midpoint', 'title' => $fareNameInfo['Station']['title'],
+                        'lon' => $fareNameInfo['Place'][0]['lon'], 'lat' => $fareNameInfo['Place'][0]['lat'],
+                        'id' => $fareNameInfo['Station']['id']);
+                    unset($fareInfo_0['station_purpose_id']);
                     $fareInfo[] = $fareInfo_0;
                 }
             }
@@ -153,19 +159,30 @@ class StationsController extends AppController {
             return $fare['fare'] == $minFare;
         });
 
+        foreach($pointInfo as $point){
 
-        // debug($fareInfo);
-        $this->set('pointInfo' , $pointInfo);
-
-        $this->set('fareInfo' , $fare);
-
-        foreach($fareInfo as $info){
-            // debug($this->Station->find('all', array(
-            //     'conditions' => array('Station.id' => $info['station_purpose_id']), 
-            //     'fields' => array('Station.id'))));
-            // ,
-            // array('fields' => array('Place'))));
+            $array = array('title' => $point['Station']['title'],
+                'type' => 'point',
+                'fare' => '0',
+                'child_fare' => '0',
+                'card_fare' => '0',
+                'child_card_fare' => '0',
+                'id' => $point['Station']['id'],
+                'lon' => $point['Place'][0]['lon'],
+                'lat' => $point['Place'][0]['lat']);
+            $fare[] = $array;
         }
+
+        $out = array();
+
+        foreach($fare as $info){
+            ksort($info);
+            $out[] = $info;
+        }
+
+        debug($out);
+
+        $this->set(array('compare' => $out));
 
     }
 }
