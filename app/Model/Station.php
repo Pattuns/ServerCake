@@ -43,24 +43,30 @@ class Station extends AppModel {
     // 情報抽出用の関数
     function ExtractInfo($info, $keys){
         $out = array();
+        $index = $info['Station']['id'];
+
+
         foreach($info as $key => $categoryInfo){ 
+
             if(in_array($key, $keys)){
 
-                $key_diff = array_filter($keys, function($value) use (&$key){
-                    return $value != $key;
-                });
-                $index = array_shift($key_diff);
-
                 foreach($categoryInfo as $fareInfo){
+
+                    if($fareInfo['station_0'] == $index){
+                        $station_purpose_id = $fareInfo['station_1'];
+                    }else{
+                        $station_purpose_id = $fareInfo['station_0'];
+                    }
+
                     $out[] = array(
-                      'station_purpose_id' => $fareInfo[$index],
+                      'station_purpose_id' => $station_purpose_id,
                       'fare' => $fareInfo['fare'],
                       'child_fare' => $fareInfo['child_fare'],
                       'card_fare' => $fareInfo['card_fare'],
                       'child_card_fare' => $fareInfo['child_card_fare']);
                 }
-                return $out;
             }
         }
+        return $out;
     }
 }
