@@ -42,15 +42,12 @@ class Station extends AppModel {
 
     // 情報抽出用の関数
     function ExtractInfo($info, $keys){
-        debug(array_keys($info));
         $out = array();
         $index = $info['Station']['id'];
 
-        // debug($info);
 
         foreach($info as $key => $categoryInfo){ 
 
-            debug($key);
             if(in_array($key, $keys)){
 
                 foreach($categoryInfo as $fareInfo){
@@ -70,6 +67,7 @@ class Station extends AppModel {
                 }
             }
         }
+        debug($out);
         return $out;
     }
 }

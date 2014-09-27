@@ -144,10 +144,12 @@ class StationsController extends AppController {
             $stationPurposeId = $fareInfo_0['station_purpose_id'];
             $fare = $fareInfo_0['fare'];
 
+
             foreach($stationFare_1 as $fareInfo_1){
+
                 if($stationPurposeId == $fareInfo_1['station_purpose_id'] &&
                     $fare == $fareInfo_1['fare']){
-                    $fareNameInfo = $this->Station->findById($fareInfo_0['station_purpose_id']);
+                    $fareNameInfo = $this->Station->findById($stationPurposeId);
                     $fareInfo_0 += array('type' => 'midpoint', 'title' => $fareNameInfo['Station']['title'],
                         'lon' => $fareNameInfo['Place'][0]['lon'], 'lat' => $fareNameInfo['Place'][0]['lat'],
                         'id' => $fareNameInfo['Station']['id']);
