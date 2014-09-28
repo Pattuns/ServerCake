@@ -160,7 +160,6 @@ class StationsController extends AppController {
 
         $stationInfos_1 = $this->Station->ExtractInfo($pointInfo[1], $keys);
 
-        debug($stationInfos_0);
 
         foreach($stationInfos_0 as $stationInfo_0){
             $stationPurposeId = $stationInfo_0['station_purpose_id'];
@@ -212,12 +211,10 @@ class StationsController extends AppController {
 
         // 最低額の取得
          $minFare = min(array_column($fareInfo, 'fare_abs'));
-        debug($fareInfo);
          $fare = array_filter($fareInfo, function($fare) use (&$minFare){
              return $fare['fare_abs'] == $minFare;
          });
 
-        debug($fare);
 
         foreach($pointInfo as $point){
 
@@ -245,7 +242,7 @@ class StationsController extends AppController {
 
         foreach($fare as $info){
             ksort($info);
-            $out[] = array_unique($info);
+            $out[] = $info;
         }
 
         $this->set(array('compare' => $out));
