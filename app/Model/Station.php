@@ -40,6 +40,36 @@ class Station extends AppModel {
         )
 	);
 
+    public $findMethods = array('stationName' => true,
+        'stationLocation' => true);
+
+    protected function _findStationName($state, $query, $results = array()){
+        if($state == 'before'){
+            $query['recursive'] = -1;
+            return $query;
+        }
+        else if($state == 'after'){
+            $result = $results[0]['Station']['title'];
+            return $result;
+        }
+    }
+
+    protected function _findStationLocation($state, $query, $results = array()){
+        if($state == 'before'){
+            $query['recursive'] = 1;
+            return $query;
+        }
+        else if($state == 'after'){
+            $num = count($results[0]['Place']);
+            $lonNum = $latNum = 0;
+            foreach($results[0]['Place'] as $place){
+                $lonNum += $place['lon'];
+                $latNum += $place['lat'];
+            }
+
+            return array('lon' => $lonNum / $num, 'lat' => $latNum / $num);
+        }
+    }
     // 情報抽出用の関数
     function ExtractInfo($info, $keys){
         $out = array();
