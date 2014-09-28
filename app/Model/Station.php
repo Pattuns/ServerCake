@@ -80,6 +80,7 @@ class Station extends AppModel {
 
             if(in_array($key, $keys)){
 
+
                 foreach($categoryInfo as $fareInfo){
 
                     if($fareInfo['station_0'] == $index){

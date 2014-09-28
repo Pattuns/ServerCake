@@ -138,8 +138,22 @@ class StationsController extends AppController {
 
     }
 
+    public function compareByDistance(){
 
-    public function compare(){
+        $stationIds = array();
+
+        $stationIds[] = $this->request->query['station_0'];
+        $stationIds[] = $this->request->query['station_1'];
+
+        $pointInfo = array_map(function($Id){
+            return $this->Station->findById($Id);
+        }, $stationIds);
+
+        debug($pointInfo);
+
+    }
+
+    public function compareByFare(){
 
         $stationIds = array();
 
@@ -157,10 +171,43 @@ class StationsController extends AppController {
 
         $stationInfos_0 = $this->Station->ExtractInfo($pointInfo[0], $keys);
 
-
         $stationInfos_1 = $this->Station->ExtractInfo($pointInfo[1], $keys);
 
-        debug($stationInfos_0);
+
+        $pointCoordinate = array();
+
+        foreach($pointInfo as $point){
+
+            $fare[] = array(
+                'title' => $point['Station']['title'],
+                'type' => 'point',
+                'fare_midpoint_station_0' => array(
+                    'fare' => 0,
+                    'card_fare' => 0,
+                    'child_fare' => 0,
+                    'child_card_fare' => 0),
+                            
+                'fare_midpoint_station_1' => array(
+                    'fare' => 0,
+                    'card_fare' => 0,
+                    'child_fare' => 0,
+                    'child_card_fare' => 0),
+                'fare_abs' => '0',
+                'id' => $point['Station']['id'],
+                'lon' => $point['Place'][0]['lon'],
+                'lat' => $point['Place'][0]['lat']);
+
+            $pointCoordinate[] = array(
+                'lon' => $point['Place'][0]['lon'],
+                'lat' => $point['Place'][0]['lat']);
+
+        }
+
+         $middleCoordinate = array(
+             'lon' => ($pointCoordinate[0]['lon'] + $pointCoordinate[1]['lon']) / 2,
+             'lat' => ($pointCoordinate[0]['lat'] + $pointCoordinate[1]['lat']) / 2);
+
+        $tmp = array();
 
         foreach($stationInfos_0 as $stationInfo_0){
             $stationPurposeId = $stationInfo_0['station_purpose_id'];
@@ -170,12 +217,10 @@ class StationsController extends AppController {
             $stationChildFare_0 = $stationInfo_0['child_fare'];
             $stationChildCardFare_0 = $stationInfo_0['child_card_fare'];
 
-            $flag = false;
-
             foreach($stationInfos_1 as $stationInfo_1){
 
                 if($stationPurposeId == $stationInfo_1['station_purpose_id']
-                    && $flag == false){
+                    && !in_array($stationPurposeId, $tmp)){
 
                     $stationFare_1 = $stationInfo_1['fare'];
                     $stationCardFare_1 = $stationInfo_1['card_fare'];
@@ -203,50 +248,56 @@ class StationsController extends AppController {
                         'fare_abs' => abs($stationFare_0 - $stationFare_1),
                         'lon' => $coordinate['lon'], 
                         'lat' => $coordinate['lat'],
+                        'dis' => sqrt(($coordinate['lon'] - $middleCoordinate['lon']) * ($coordinate['lon'] - $middleCoordinate['lon']) +
+                            ($coordinate['lat'] - $middleCoordinate['lat']) * ($coordinate['lat'] - $middleCoordinate['lat'])),
                         'id' => $stationPurposeId);
 
-                    $flag = true;
+                    $tmp[] = $stationPurposeId;
                 }
             }
         }
 
+
         // 最低額の取得
          $minFare = min(array_column($fareInfo, 'fare_abs'));
-        debug($fareInfo);
          $fare = array_filter($fareInfo, function($fare) use (&$minFare){
              return $fare['fare_abs'] == $minFare;
          });
 
-        debug($fare);
+         uasort($fare,function($a, $b){
+             $dis_1 = $a['dis'];
+             $dis_2 = $b['dis'];
+             if($dis_1 == $dis_2){
+                 return 0;
+             }
+             return ($dis_1 < $dis_2) ? -1 : 1;
+         });
 
-        foreach($pointInfo as $point){
+         foreach($pointInfo as $point)
+             $fare[] = $point;
 
-            $fare[] = array(
-                'title' => $point['Station']['title'],
-                'type' => 'point',
-                'fare_midpoint_station_0' => array(
-                    'fare' => 0,
-                    'card_fare' => 0,
-                    'child_fare' => 0,
-                    'child_card_fare' => 0),
-                            
-                'fare_midpoint_station_1' => array(
-                    'fare' => 0,
-                    'card_fare' => 0,
-                    'child_fare' => 0,
-                    'child_card_fare' => 0),
-                'fare_abs' => '0',
-                'id' => $point['Station']['id'],
-                'lon' => $point['Place'][0]['lon'],
-                'lat' => $point['Place'][0]['lat']);
-        }
+         $count = 0;
+         foreach($fare as $info){
+             if($count < 5 && $info['type'] == "midpoint"){
+                $info['priority'] = true;
+                $out[] = $info; 
+             }
+             else{
+                 $info['priority'] = false;
+                 $out[] = $info;
+             }
+             $count++;
+         }
 
-        $out = array();
 
-        foreach($fare as $info){
-            ksort($info);
-            $out[] = array_unique($info);
-        }
+debug($out);
+
+
+
+        // foreach($fare as $info){
+        //     ksort($info);
+        //     $out[] = $info;
+        // }
 
         $this->set(array('compare' => $out));
 

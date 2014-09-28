@@ -2,7 +2,7 @@
 	<h2><?php echo __('Stations'); ?></h2>
 
 <?php echo $this->Form->create('Station', array('type' => 'get',
-'action' => 'compare.json')); ?>
+'action' => 'compareByFare.json')); ?>
 
 <?php echo $this->Form->input('station_0', array(
     'type' => 'select',
@@ -12,7 +12,22 @@
     'type' => 'select',
     'options' => $select1)); ?>
 
-<?php echo $this->Form->end('submit'); ?>
+<?php echo $this->Form->end('Fare'); ?>
+
+<br />
+
+<?php echo $this->Form->create('Station', array('type' => 'get',
+'action' => 'compareByDistance.json')); ?>
+
+<?php echo $this->Form->input('station_0', array(
+    'type' => 'select',
+    'options' => $select0)); ?>
+
+<?php echo $this->Form->input('station_1', array(
+    'type' => 'select',
+    'options' => $select1)); ?>
+
+<?php echo $this->Form->end('Distance'); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

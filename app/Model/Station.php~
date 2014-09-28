@@ -62,7 +62,7 @@ class Station extends AppModel {
         else if($state == 'after'){
             $num = count($results[0]['Place']);
             $lonNum = $latNum = 0;
-            foreach($resultsi[0]['Place'] as $place){
+            foreach($results[0]['Place'] as $place){
                 $lonNum += $place['lon'];
                 $latNum += $place['lat'];
             }
@@ -79,6 +79,8 @@ class Station extends AppModel {
         foreach($info as $key => $categoryInfo){ 
 
             if(in_array($key, $keys)){
+
+                echo "count : " . count($categoryInfo) . "<br />";
 
                 foreach($categoryInfo as $fareInfo){
 

@@ -1,8 +1,23 @@
 <div class="stations index">
 	<h2><?php echo __('Stations'); ?></h2>
 
-<?php echo $this->Form->create('Station', array('type' => 'post',
-'action' => 'compare.json')); ?>
+<?php echo $this->Form->create('Station', array('type' => 'get',
+'action' => 'compareByFare.json')); ?>
+
+<?php echo $this->Form->input('station_0', array(
+    'type' => 'select',
+    'options' => $select0)); ?>
+
+<?php echo $this->Form->input('station_1', array(
+    'type' => 'select',
+    'options' => $select1)); ?>
+
+<?php echo $this->Form->end('submit'); ?>
+
+<br />
+
+<?php echo $this->Form->create('Station', array('type' => 'get',
+'action' => 'compareByFare.json')); ?>
 
 <?php echo $this->Form->input('station_0', array(
     'type' => 'select',
