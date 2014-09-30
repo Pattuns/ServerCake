@@ -70,6 +70,16 @@ class Station extends AppModel {
             return array('lon' => $lonNum / $num, 'lat' => $latNum / $num);
         }
     }
+
+    // 料金情報挿入用関数
+    function putFareInfo($fare){
+        $array = array();
+
+        list($array['fare'], $array['card_fare'],
+            $array['child_fare'], $array['child_card_fare']) = $fare;
+        return $array;
+    }
+
     // 情報抽出用の関数
     function ExtractInfo($info, $keys){
         $out = array();
@@ -79,15 +89,10 @@ class Station extends AppModel {
         foreach($info as $key => $categoryInfo){ 
 
             if(in_array($key, $keys)){
-
-
                 foreach($categoryInfo as $fareInfo){
 
-                    if($fareInfo['station_0'] == $index){
-                        $station_purpose_id = $fareInfo['station_1'];
-                    }else{
-                        $station_purpose_id = $fareInfo['station_0'];
-                    }
+                    $station_purpose_id = ($fareInfo['station_0'] == $index)?
+                        $fareInfo['station_1']:$fareInfo['station_0'];
 
                     $out[] = array(
                       'station_purpose_id' => $station_purpose_id,
@@ -98,6 +103,7 @@ class Station extends AppModel {
                 }
             }
         }
+
         return $out;
     }
 }

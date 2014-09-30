@@ -70,6 +70,7 @@ class Station extends AppModel {
             return array('lon' => $lonNum / $num, 'lat' => $latNum / $num);
         }
     }
+
     // 情報抽出用の関数
     function ExtractInfo($info, $keys){
         $out = array();
@@ -79,16 +80,10 @@ class Station extends AppModel {
         foreach($info as $key => $categoryInfo){ 
 
             if(in_array($key, $keys)){
-
-                echo "count : " . count($categoryInfo) . "<br />";
-
                 foreach($categoryInfo as $fareInfo){
 
-                    if($fareInfo['station_0'] == $index){
-                        $station_purpose_id = $fareInfo['station_1'];
-                    }else{
-                        $station_purpose_id = $fareInfo['station_0'];
-                    }
+                    $station_purpose_id = ($fareInfo['station_0'] == $index)?
+                        $fareInfo['station_1']:$fareInfo['station_0'];
 
                     $out[] = array(
                       'station_purpose_id' => $station_purpose_id,
@@ -99,6 +94,7 @@ class Station extends AppModel {
                 }
             }
         }
+
         return $out;
     }
 }

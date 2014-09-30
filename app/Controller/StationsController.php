@@ -173,39 +173,30 @@ class StationsController extends AppController {
 
         $stationInfos_1 = $this->Station->ExtractInfo($pointInfo[1], $keys);
 
+        $samp = $this->Station->putFareInfo(array_pad($samp = array(), 4, 0));
 
-        $pointCoordinate = array();
 
         foreach($pointInfo as $point){
 
             $points[] = array(
                 'title' => $point['Station']['title'],
                 'type' => 'point',
-                'fare_midpoint_station_0' => array(
-                    'fare' => 0,
-                    'card_fare' => 0,
-                    'child_fare' => 0,
-                    'child_card_fare' => 0),
-                            
-                'fare_midpoint_station_1' => array(
-                    'fare' => 0,
-                    'card_fare' => 0,
-                    'child_fare' => 0,
-                    'child_card_fare' => 0),
+                'fare_midpoint_station_0' => 
+                    $this->Station->putFareInfo(array_pad($samp = array(), 4, 0)),
+                'fare_midpoint_station_1' =>
+                    $this->Station->putFareInfo(array_pad($samp = array(), 4, 0)),
                 'fare_abs' => '0',
                 'id' => $point['Station']['id'],
                 'lon' => $point['Place'][0]['lon'],
                 'lat' => $point['Place'][0]['lat']);
 
-            $pointCoordinate[] = array(
-                'lon' => $point['Place'][0]['lon'],
-                'lat' => $point['Place'][0]['lat']);
-
         }
 
+        debug($points);
+
          $middleCoordinate = array(
-             'lon' => ($pointCoordinate[0]['lon'] + $pointCoordinate[1]['lon']) / 2,
-             'lat' => ($pointCoordinate[0]['lat'] + $pointCoordinate[1]['lat']) / 2);
+             'lon' => ($points[0]['lon'] + $points[1]['lon']) / 2,
+             'lat' => ($points[0]['lat'] + $points[1]['lat']) / 2);
 
         $tmp = array();
 
