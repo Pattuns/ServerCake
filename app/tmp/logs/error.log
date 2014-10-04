@@ -1785,3 +1785,81 @@ Stack Trace:
 #3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2014-10-04 10:28:43 Error: Fatal Error (4): syntax error, unexpected ';', expecting ')' in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 238]
+2014-10-04 10:28:43 Error: [FatalErrorException] syntax error, unexpected ';', expecting ')'
+Request URL: /Stations
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/vagrant/CakeMe...', 238)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/vagrant/CakeMe...', 238, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/vagrant/CakeMe...', 238, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-04 10:28:49 Error: [MissingControllerException] Controller class StationController could not be found.
+Exception Attributes: array (
+  'class' => 'StationController',
+  'plugin' => NULL,
+)
+Request URL: /Station/select
+Stack Trace:
+#0 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-04 10:28:54 Error: [MissingControllerException] Controller class StationsselectController could not be found.
+Exception Attributes: array (
+  'class' => 'StationsselectController',
+  'plugin' => NULL,
+)
+Request URL: /Stationsselect
+Stack Trace:
+#0 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-04 10:28:57 Error: Fatal Error (4): syntax error, unexpected ';', expecting ')' in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 238]
+2014-10-04 10:28:57 Error: [FatalErrorException] syntax error, unexpected ';', expecting ')'
+Request URL: /Stations/select
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/vagrant/CakeMe...', 238)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/vagrant/CakeMe...', 238, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/vagrant/CakeMe...', 238, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-04 10:30:54 Error: Fatal Error (1): Unsupported operand types in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 246]
+2014-10-04 10:30:54 Error: [FatalErrorException] Unsupported operand types
+Request URL: /stations/compareByFare.json?station_0=7&station_1=1
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Unsupported ope...', '/vagrant/CakeMe...', 246)
+#1 [internal function]: ErrorHandler::handleError(1, 'Unsupported ope...', '/vagrant/CakeMe...', 246, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Unsupported ope...', '/vagrant/CakeMe...', 246, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-04 10:31:36 Error: Fatal Error (1): Unsupported operand types in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 246]
+2014-10-04 10:31:36 Error: [FatalErrorException] Unsupported operand types
+Request URL: /stations/compareByFare.json?station_0=7&station_1=1
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Unsupported ope...', '/vagrant/CakeMe...', 246)
+#1 [internal function]: ErrorHandler::handleError(1, 'Unsupported ope...', '/vagrant/CakeMe...', 246, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Unsupported ope...', '/vagrant/CakeMe...', 246, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-04 10:32:29 Error: Fatal Error (1): Unsupported operand types in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 247]
+2014-10-04 10:32:29 Error: [FatalErrorException] Unsupported operand types
+Request URL: /stations/compareByFare.json?station_0=7&station_1=1
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Unsupported ope...', '/vagrant/CakeMe...', 247)
+#1 [internal function]: ErrorHandler::handleError(1, 'Unsupported ope...', '/vagrant/CakeMe...', 247, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Unsupported ope...', '/vagrant/CakeMe...', 247, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-04 10:35:35 Error: Fatal Error (1): Unsupported operand types in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 247]
+2014-10-04 10:35:35 Error: [FatalErrorException] Unsupported operand types
+Request URL: /stations/compareByFare.json?station_0=7&station_1=1
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Unsupported ope...', '/vagrant/CakeMe...', 247)
+#1 [internal function]: ErrorHandler::handleError(1, 'Unsupported ope...', '/vagrant/CakeMe...', 247, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Unsupported ope...', '/vagrant/CakeMe...', 247, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
