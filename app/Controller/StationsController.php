@@ -149,7 +149,28 @@ class StationsController extends AppController {
             return $this->Station->findById($Id);
         }, $stationIds);
 
-        debug($pointInfo);
+        foreach($pointInfo as $point){
+
+            $coordinate = $this->Station->find('stationLocation',array(
+                'conditions' => array('id' => $point['Station']['id'])));
+
+            $points[] = array(
+                'title' => $point['Station']['title'],
+                'type' => 'point',
+                'fare_midpoint_station_0' => 
+                    $this->Station->putFareInfo(array_pad($samp = array(), 4, 0)),
+                'fare_midpoint_station_1' =>
+                    $this->Station->putFareInfo(array_pad($samp = array(), 4, 0)),
+                'fare_abs' => '0',
+                'id' => $point['Station']['id'],
+                'lon' => $coordinate['lon'],
+                'lat' => $coordinate['lat']);
+
+        }
+
+        $middleCoordinate = $this->Station->getMiddlePoint($points);
+
+        debug($middleCoordinate);
 
     }
 
@@ -189,10 +210,7 @@ class StationsController extends AppController {
 
         }
 
-         $middleCoordinate = array(
-             'lon' => ($points[0]['lon'] + $points[1]['lon']) / 2,
-             'lat' => ($points[0]['lat'] + $points[1]['lat']) / 2);
-
+        $middleCoordinate = $this->Station->getMiddlePoint($points);
         $tmp = array();
 
         foreach($stationInfos_0 as $stationInfo_0){

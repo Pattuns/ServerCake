@@ -71,6 +71,20 @@ class Station extends AppModel {
         }
     }
 
+    function getMiddlePoint($points){
+        $num = count($points);
+        $lonNum = $latNum = 0;
+
+            foreach($points as $point){
+
+                $lonNum += $point['lon'];
+                $latNum += $point['lat'];
+
+            }
+
+            return array('lon' => $lonNum / $num, 'lat' => $latNum / $num);
+    }
+
     // 料金情報挿入用関数
     function putFareInfo($fare){
         $array = array();

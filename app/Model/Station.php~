@@ -71,6 +71,15 @@ class Station extends AppModel {
         }
     }
 
+    // 料金情報挿入用関数
+    function putFareInfo($fare){
+        $array = array();
+
+        list($array['fare'], $array['card_fare'],
+            $array['child_fare'], $array['child_card_fare']) = $fare;
+        return $array;
+    }
+
     // 情報抽出用の関数
     function ExtractInfo($info, $keys){
         $out = array();
