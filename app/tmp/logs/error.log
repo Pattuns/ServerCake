@@ -1863,3 +1863,63 @@ Stack Trace:
 #3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2014-10-06 10:27:56 Error: [MissingControllerException] Controller class SelectController could not be found.
+Exception Attributes: array (
+  'class' => 'SelectController',
+  'plugin' => NULL,
+)
+Request URL: /select
+Stack Trace:
+#0 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-06 10:29:51 Error: [ConfigureException] No variable $config found in /vagrant/CakeMetoro/app/Config/const.php
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Core/Configure.php(298): PhpReader->read('const')
+#1 /vagrant/CakeMetoro/app/Config/bootstrap.php(94): Configure::load('const')
+#2 /vagrant/CakeMetoro/lib/Cake/Core/Configure.php(92): include('/vagrant/CakeMe...')
+#3 /vagrant/CakeMetoro/lib/Cake/bootstrap.php(175): Configure::bootstrap(true)
+#4 /vagrant/CakeMetoro/app/webroot/index.php(90): include('/vagrant/CakeMe...')
+#5 {main}
+2014-10-06 10:30:32 Error: [ConfigureException] No variable $config found in /vagrant/CakeMetoro/app/Config/const.php
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Core/Configure.php(298): PhpReader->read('const')
+#1 /vagrant/CakeMetoro/app/Config/bootstrap.php(94): Configure::load('const')
+#2 /vagrant/CakeMetoro/lib/Cake/Core/Configure.php(92): include('/vagrant/CakeMe...')
+#3 /vagrant/CakeMetoro/lib/Cake/bootstrap.php(175): Configure::bootstrap(true)
+#4 /vagrant/CakeMetoro/app/webroot/index.php(90): include('/vagrant/CakeMe...')
+#5 {main}
+2014-10-06 10:30:33 Error: [ConfigureException] No variable $config found in /vagrant/CakeMetoro/app/Config/const.php
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Core/Configure.php(298): PhpReader->read('const')
+#1 /vagrant/CakeMetoro/app/Config/bootstrap.php(94): Configure::load('const')
+#2 /vagrant/CakeMetoro/lib/Cake/Core/Configure.php(92): include('/vagrant/CakeMe...')
+#3 /vagrant/CakeMetoro/lib/Cake/bootstrap.php(175): Configure::bootstrap(true)
+#4 /vagrant/CakeMetoro/app/webroot/index.php(90): include('/vagrant/CakeMe...')
+#5 {main}
+2014-10-06 10:32:02 Error: [ConfigureException] No variable $config found in /vagrant/CakeMetoro/app/Config/const.php
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Core/Configure.php(298): PhpReader->read('const')
+#1 /vagrant/CakeMetoro/app/Config/bootstrap.php(94): Configure::load('const')
+#2 /vagrant/CakeMetoro/lib/Cake/Core/Configure.php(92): include('/vagrant/CakeMe...')
+#3 /vagrant/CakeMetoro/lib/Cake/bootstrap.php(175): Configure::bootstrap(true)
+#4 /vagrant/CakeMetoro/app/webroot/index.php(90): include('/vagrant/CakeMe...')
+#5 {main}
+2014-10-06 10:32:06 Error: [ConfigureException] No variable $config found in /vagrant/CakeMetoro/app/Config/const.php
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Core/Configure.php(298): PhpReader->read('const')
+#1 /vagrant/CakeMetoro/app/Config/bootstrap.php(94): Configure::load('const')
+#2 /vagrant/CakeMetoro/lib/Cake/Core/Configure.php(92): include('/vagrant/CakeMe...')
+#3 /vagrant/CakeMetoro/lib/Cake/bootstrap.php(175): Configure::bootstrap(true)
+#4 /vagrant/CakeMetoro/app/webroot/index.php(90): include('/vagrant/CakeMe...')
+#5 {main}
+2014-10-06 10:43:43 Error: [ConfigureException] Could not load configuration file: /vagrant/CakeMetoro/app/Config/CONSKEY.php
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=14
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Core/Configure.php(298): PhpReader->read('CONSKEY')
+#1 /vagrant/CakeMetoro/app/Controller/StationsController.php(173): Configure::load('CONSKEY')
+#2 [internal function]: StationsController->compareByDistance()
+#3 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(StationsController), Array)
+#4 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#5 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#6 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}

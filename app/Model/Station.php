@@ -71,6 +71,7 @@ class Station extends AppModel {
         }
     }
 
+    // 中間点を求める関数
     function getMiddlePoint($points){
         $num = count($points);
         $lonNum = $latNum = 0;

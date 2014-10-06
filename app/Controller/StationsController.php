@@ -170,8 +170,22 @@ class StationsController extends AppController {
 
         $middleCoordinate = $this->Station->getMiddlePoint($points);
 
-        debug($middleCoordinate);
+        $conskey = Configure::read("CONSKEY");
 
+        $url = "https://api.tokyometroapp.jp/api/v2/places?rdf:type=odpt:Station&lon=" . 
+            $middleCoordinate['lon'] . "&lat=" . $middleCoordinate['lat'] ."&radius=1000&acl:consumerKey="
+            . $conskey;
+
+        $obj = json_decode(file_get_contents($url));
+
+        $tmp = array();
+        foreach($obj as $info){
+            // if(!in_array(
+            // 
+            debug($info);
+        } 
+
+        // debug($obj);
     }
 
     public function compareByFare(){
@@ -191,7 +205,6 @@ class StationsController extends AppController {
         $keys = array('station_0', 'station_1');
 
         $stationInfos_0 = $this->Station->ExtractInfo($pointInfo[0], $keys);
-
         $stationInfos_1 = $this->Station->ExtractInfo($pointInfo[1], $keys);
 
         foreach($pointInfo as $point){
