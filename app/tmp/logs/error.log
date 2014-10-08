@@ -1923,3 +1923,184 @@ Stack Trace:
 #5 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
 #6 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #7 {main}
+2014-10-07 22:40:57 Error: Fatal Error (1): Cannot use object of type stdClass as array in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 185]
+2014-10-07 22:40:57 Error: [FatalErrorException] Cannot use object of type stdClass as array
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/vagrant/CakeMe...', 185)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/vagrant/CakeMe...', 185, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/vagrant/CakeMe...', 185, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-07 22:53:55 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 15728640 bytes) in [/vagrant/CakeMetoro/lib/Cake/basics.php, line 117]
+2014-10-07 22:53:55 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 15728640 bytes)
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/vagrant/CakeMe...', 117)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/vagrant/CakeMe...', 117, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/vagrant/CakeMe...', 117, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-07 22:58:22 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Station.' in 'field list'
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT DISTINCT...', Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(665): DboSource->execute('SELECT DISTINCT...', Array, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT DISTINCT...', false)
+#4 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2903): DboSource->read(Object(Station), Array)
+#5 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2875): Model->_readDataSource('first', Array)
+#6 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(597): Model->find('first', Array)
+#7 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(800): DboSource->query('findByTitle', Array, Object(Station))
+#8 /vagrant/CakeMetoro/app/Controller/StationsController.php(186): Model->__call('findByTitle', Array)
+#9 /vagrant/CakeMetoro/app/Controller/StationsController.php(186): Station->findByTitle(' \xE4\xB9\x9D\xE6\xAE\xB5\xE4\xB8\x8B ', Array)
+#10 [internal function]: StationsController->compareByDistance()
+#11 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(StationsController), Array)
+#12 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#13 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#14 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2014-10-07 23:32:59 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'station_0.station_1' in 'where clause'
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `Station...', Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(665): DboSource->execute('SELECT `Station...', Array, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `Station...', false)
+#4 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2903): DboSource->read(Object(Station), Array)
+#5 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2875): Model->_readDataSource('all', Array)
+#6 /vagrant/CakeMetoro/app/Controller/StationsController.php(198): Model->find('all', Array)
+#7 [internal function]: StationsController->compareByDistance()
+#8 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(StationsController), Array)
+#9 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#11 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-10-08 08:28:03 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 15728640 bytes) in [/vagrant/CakeMetoro/lib/Cake/basics.php, line 117]
+2014-10-08 08:28:03 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 15728640 bytes)
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/vagrant/CakeMe...', 117)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/vagrant/CakeMe...', 117, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/vagrant/CakeMe...', 117, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-08 08:28:46 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 15728640 bytes) in [/vagrant/CakeMetoro/lib/Cake/basics.php, line 117]
+2014-10-08 08:28:46 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 15728640 bytes)
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/vagrant/CakeMe...', 117)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/vagrant/CakeMe...', 117, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/vagrant/CakeMe...', 117, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-08 08:30:07 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 15728640 bytes) in [/vagrant/CakeMetoro/lib/Cake/basics.php, line 117]
+2014-10-08 08:30:07 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 15728640 bytes)
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/vagrant/CakeMe...', 117)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/vagrant/CakeMe...', 117, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/vagrant/CakeMe...', 117, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-08 08:31:12 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 15728640 bytes) in [/vagrant/CakeMetoro/lib/Cake/basics.php, line 117]
+2014-10-08 08:31:12 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 15728640 bytes)
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/vagrant/CakeMe...', 117)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/vagrant/CakeMe...', 117, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/vagrant/CakeMe...', 117, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-08 08:32:36 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 15728640 bytes) in [/vagrant/CakeMetoro/lib/Cake/basics.php, line 117]
+2014-10-08 08:32:36 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 15728640 bytes)
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/vagrant/CakeMe...', 117)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/vagrant/CakeMe...', 117, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/vagrant/CakeMe...', 117, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-08 08:45:56 Error: Fatal Error (1): Call to a member function find() on a non-object in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 192]
+2014-10-08 08:45:56 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/vagrant/CakeMe...', 192)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/vagrant/CakeMe...', 192, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/vagrant/CakeMe...', 192, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-08 08:46:20 Error: Fatal Error (1): Call to a member function find() on a non-object in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 192]
+2014-10-08 08:46:20 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/vagrant/CakeMe...', 192)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/vagrant/CakeMe...', 192, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/vagrant/CakeMe...', 192, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-08 08:47:19 Error: Fatal Error (1): Call to a member function find() on a non-object in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 192]
+2014-10-08 08:47:19 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/vagrant/CakeMe...', 192)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/vagrant/CakeMe...', 192, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/vagrant/CakeMe...', 192, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-08 08:48:27 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'station_0'
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=13
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `station...', Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(665): DboSource->execute('SELECT `station...', Array, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `station...', false)
+#4 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2903): DboSource->read(Object(Fare), Array)
+#5 /vagrant/CakeMetoro/lib/Cake/Model/Model.php(2875): Model->_readDataSource('all', Array)
+#6 /vagrant/CakeMetoro/app/Controller/StationsController.php(192): Model->find('all')
+#7 [internal function]: StationsController->compareByDistance()
+#8 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(StationsController), Array)
+#9 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(StationsController), Object(CakeRequest), Object(CakeResponse))
+#11 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-10-08 22:35:44 Error: Fatal Error (4): syntax error, unexpected '{' in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 205]
+2014-10-08 22:35:44 Error: [FatalErrorException] syntax error, unexpected '{'
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=14
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/vagrant/CakeMe...', 205)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/vagrant/CakeMe...', 205, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/vagrant/CakeMe...', 205, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-08 22:52:15 Error: Fatal Error (4): syntax error, unexpected ';', expecting ')' in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 212]
+2014-10-08 22:52:15 Error: [FatalErrorException] syntax error, unexpected ';', expecting ')'
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=14
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/vagrant/CakeMe...', 212)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/vagrant/CakeMe...', 212, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/vagrant/CakeMe...', 212, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-08 23:11:41 Error: Fatal Error (1): Call to undefined function debbug() in [/vagrant/CakeMetoro/app/Controller/StationsController.php, line 234]
+2014-10-08 23:11:41 Error: [FatalErrorException] Call to undefined function debbug()
+Request URL: /stations/compareByDistance.json?station_0=1&station_1=14
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/vagrant/CakeMe...', 234)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/vagrant/CakeMe...', 234, Array)
+#2 /vagrant/CakeMetoro/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/vagrant/CakeMe...', 234, Array)
+#3 /vagrant/CakeMetoro/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
