@@ -71,6 +71,71 @@ class Station extends AppModel {
         }
     }
 
+    // ポイントの情報取得用関数
+    function getPointInfo($stationIds){
+
+        $pointInfo = array_map(function($Id){
+            return $this->findById($Id);
+        }, $stationIds);
+
+        foreach($pointInfo as $point){
+
+            $coordinate = $this->find('stationLocation',array(
+                'conditions' => array('id' => $point['Station']['id'])));
+
+            $points[] = array(
+                'title' => $point['Station']['title'],
+                'type' => 'point',
+                'fare_midpoint_station_0' => 
+                    $this->putFareInfo(array_pad($samp = array(), 4, 0)),
+                'fare_midpoint_station_1' =>
+                    $this->putFareInfo(array_pad($samp = array(), 4, 0)),
+                'fare_abs' => '0',
+                'id' => $point['Station']['id'],
+                'lon' => $coordinate['lon'],
+                'lat' => $coordinate['lat']);
+
+        }
+
+        return $points;
+    }
+
+    function getFareById($Point, $purposeId){
+
+        // 重複確認用配列
+        $uniqCheck = array();
+
+        // 運賃格納用配列
+        $fareInfo = array();
+
+        foreach($Point['station_0'] as $info){
+            if($info['station_1'] == $purposeId &&
+                !in_array($Point['station_0'], $uniqCheck)){
+
+                $uniqCheck[] = $info['station_0'];
+                $fareInfo = array('fare' => $info['fare'],
+                    'card_fare' => $info['card_fare'], 'child_fare' => $info['child_fare'],
+                    'child_card_fare' => $info['child_card_fare']);
+            }
+
+        }
+
+        foreach($Point['station_1'] as $info){
+            if($info['station_0'] == $purposeId &&
+                !in_array($Point['station_1'], $uniqCheck)){
+
+                $uniqCheck[] = $info['station_0'];
+                $fareInfo = array('fare' => $info['fare'],
+                    'card_fare' => $info['card_fare'], 'child_fare' => $info['child_fare'],
+                    'child_card_fare' => $info['child_card_fare']);
+            }
+
+        }
+
+        return $fareInfo;
+
+    }
+
     // 中間点を求める関数
     function getMiddlePoint($points){
         $num = count($points);
@@ -84,6 +149,17 @@ class Station extends AppModel {
             }
 
             return array('lon' => $lonNum / $num, 'lat' => $latNum / $num);
+    }
+
+    function putPointInfo($point){
+        $array = array();
+
+        list($array['id'], $array['title'],
+            $array['type'], $array['fare_midpoint_station_0'],
+            $array['fare_midpoint_station_1'], $array['fare_abs'],
+            $array['lon'], $array['lat'], $array['dis'],
+            $array['priority']) = $point;
+        return $array;
     }
 
     // 料金情報挿入用関数

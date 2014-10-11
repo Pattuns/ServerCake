@@ -145,28 +145,30 @@ class StationsController extends AppController {
         $stationIds[] = $this->request->query['station_0'];
         $stationIds[] = $this->request->query['station_1'];
 
-        $pointInfo = array_map(function($Id){
-            return $this->Station->findById($Id);
-        }, $stationIds);
-
-        foreach($pointInfo as $point){
-
-            $coordinate = $this->Station->find('stationLocation',array(
-                'conditions' => array('id' => $point['Station']['id'])));
-
-            $points[] = array(
-                'title' => $point['Station']['title'],
-                'type' => 'point',
-                'fare_midpoint_station_0' => 
-                $this->Station->putFareInfo(array_pad($samp = array(), 4, 0)),
-                    'fare_midpoint_station_1' =>
-                    $this->Station->putFareInfo(array_pad($samp = array(), 4, 0)),
-                    'fare_abs' => '0',
-                    'id' => $point['Station']['id'],
-                    'lon' => $coordinate['lon'],
-                    'lat' => $coordinate['lat']);
-
-        }
+        // $pointInfo = array_map(function($Id){
+        //     return $this->Station->findById($Id);
+        // }, $stationIds);
+        //
+        // foreach($pointInfo as $point){
+        //
+        //     $coordinate = $this->Station->find('stationLocation',array(
+        //         'conditions' => array('id' => $point['Station']['id'])));
+        //
+        //     $points[] = array(
+        //         'title' => $point['Station']['title'],
+        //         'type' => 'point',
+        //         'fare_midpoint_station_0' => 
+        //         $this->Station->putFareInfo(array_pad($samp = array(), 4, 0)),
+        //             'fare_midpoint_station_1' =>
+        //             $this->Station->putFareInfo(array_pad($samp = array(), 4, 0)),
+        //             'fare_abs' => '0',
+        //             'id' => $point['Station']['id'],
+        //             'lon' => $coordinate['lon'],
+        //             'lat' => $coordinate['lat']);
+        //
+        // }
+        //
+        $points = $this->Station->getPointInfo($stationIds);
 
         $middleCoordinate = $this->Station->getMiddlePoint($points);
 
@@ -179,6 +181,7 @@ class StationsController extends AppController {
         $obj = json_decode(file_get_contents($url));
 
         $pointNames = array();
+
         foreach($obj as $info){
             $pointInfo = get_object_vars($info);
             $pointName = $pointInfo['dc:title'];
@@ -186,15 +189,10 @@ class StationsController extends AppController {
                 $pointNames[] = $pointName;
         }
 
-        // debug($pointNames);
-
         $pointInfo = array_map(function($pointName){
             return $this->Station->findByTitle(" " . $pointName . " ");
         }, $pointNames);
 
-        // debug($pointInfo);
-        //
-        $array = array();
         $fareArray = array();
         $out = array();
 
@@ -216,37 +214,10 @@ class StationsController extends AppController {
             $out['fare_abs'] = 0;
             $out['priority'] = true;
 
-            foreach($points as $point){
-                $stationId = $point['id'];
+            $fareArray = array_map(function($pointInfo) use (&$info){
+                return $this->Station->getFareById($info, $pointInfo['id']);
+            }, $points);
 
-                foreach($info['station_0'] as $node){
-                    if($node['station_1'] == $stationId &&
-                        !in_array($node['station_0'],$array)){
-
-                        $array[] = $node['station_0'];
-                        $fareArray[] = array('fare' => $node['fare'],
-                            'card_fare' => $node['card_fare'], 'child_fare' => $node['child_fare'],
-                            'child_card_fare' => $node['child_card_fare']);
-
-                    }
-
-                }
-
-                foreach($info['station_1'] as $node){
-                    if($node['station_0'] == $stationId &&
-                        !in_array($node['station_1'],$array)){
-
-                        $array[] = $node['station_1'];
-                        $fareArray[] = array('fare' => $node['fare'],
-                            'card_fare' => $node['card_fare'], 'child_fare' => $node['child_fare'],
-                            'child_card_fare' => $node['child_card_fare']);
-
-                    }
-                }
-
-                $array = array();
-
-            }
             $out['fare_midpoint_station_0'] = $fareArray[0];
             $out['fare_midpoint_station_1'] = $fareArray[1];
 

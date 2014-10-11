@@ -179,6 +179,7 @@ class StationsController extends AppController {
         $obj = json_decode(file_get_contents($url));
 
         $pointNames = array();
+
         foreach($obj as $info){
             $pointInfo = get_object_vars($info);
             $pointName = $pointInfo['dc:title'];
@@ -186,15 +187,10 @@ class StationsController extends AppController {
                 $pointNames[] = $pointName;
         }
 
-        // debug($pointNames);
-
         $pointInfo = array_map(function($pointName){
             return $this->Station->findByTitle(" " . $pointName . " ");
         }, $pointNames);
 
-        // debug($pointInfo);
-        //
-        $array = array();
         $fareArray = array();
         $out = array();
 
@@ -213,37 +209,20 @@ class StationsController extends AppController {
             $out['lon'] = $coordinate['lon'];
             $out['lat'] = $coordinate['lat'];
 
-            foreach($points as $point){
-                $stationId = $point['id'];
+            $out['fare_abs'] = 0;
+            $out['priority'] = true;
 
-                foreach($info['station_0'] as $node){
-                    if($node['station_1'] == $stationId &&
-                        !in_array($node['station_0'],$array)){
+            $fareArray = array_map(function($pointInfo) use (&$info){
+                return $this->Station->getFareById($info, $pointInfo['id']);
+            }, $points);
 
-                        $array[] = $node['station_0'];
-                        $fareArray[] = array('fare' => $node['fare'],
-                            'card_fare' => $node['card_fare'], 'child_fare' => $node['child_fare'],
-                            'child_card_fare' => $node['child_card_fare']);
-
-                    }
-
-                }
-
-                foreach($info['station_1'] as $node){
-                    if($node['station_0'] == $stationId &&
-                        !in_array($node['station_1'],$array)){
-
-                        $array[] = $node['station_1'];
-                        $fareArray[] = array('fare' => $node['fare'],
-                            'card_fare' => $node['card_fare'], 'child_fare' => $node['child_fare'],
-                            'child_card_fare' => $node['child_card_fare']);
-
-                    }
-                }
-
-                $array = array();
-
-            }
+            // foreach($points as $point){
+            //     $stationId = $point['id'];
+            //
+            //     $fareArray[] = $this->Station->getFareById($info, $stationId);
+            //
+            //
+            // }
             $out['fare_midpoint_station_0'] = $fareArray[0];
             $out['fare_midpoint_station_1'] = $fareArray[1];
 
@@ -251,52 +230,8 @@ class StationsController extends AppController {
             $fareArray = array();
         }
 
-        debug($outArray);
 
-        // foreach($pointInfo as $info){
-        //     $out = array('type' => 'midpoint','title' => $info['Station']['title'],
-        //         'fare_midpoint_station_0' => array(
-
-
-
-        // $this->Station->recursive = 1;
-
-
-        // $stationInfo = $this->Station->findByTitle(" " . $pointName . " ");
-        // debug($stationInfo);
-        // foreach($points as $point){
-        //     $fareInfo = array();
-        // debug($point['id']);
-        // foreach($stationInfo['station_0'] as $stationInfoDetail){
-        //     if($stationInfoDetail['station_1'] == $point['id']){
-        //         $fareInfo['fare'] = $stationInfoDetail['fare'];
-        //         $fareInfo['child_fare'] = $stationInfoDetail['child_fare'];
-        //         $fareInfo['card_fare'] = $stationInfoDetail['card_fare'];
-        //         $fareInfo['child_card_fare'] = $stationInfoDetail['child_card_fare'];
-        //
-        //     }
-        // }
-        //
-        // foreach($stationInfo['station_1'] as $stationInfoDetail){
-        //     if($stationInfoDetail['station_0'] == $point['id']){
-        //         $fareInfo['fare'] = $stationInfoDetail['fare'];
-        //         $fareInfo['child_fare'] = $stationInfoDetail['child_fare'];
-        //         $fareInfo['card_fare'] = $stationInfoDetail['card_fare'];
-        //         $fareInfo['child_card_fare'] = $stationInfoDetail['child_card_fare'];
-        //
-        //     }
-        // }
-
-        // debug($fareInfo);
-        //         }
-        //
-        //
-        //
-        //     
-        //     }
-        // } 
-
-        // debug($obj);
+        $this->set(array('compare' => $outArray));
     }
 
     public function compareByFare(){
