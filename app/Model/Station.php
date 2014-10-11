@@ -83,18 +83,11 @@ class Station extends AppModel {
             $coordinate = $this->find('stationLocation',array(
                 'conditions' => array('id' => $point['Station']['id'])));
 
-            $points[] = array(
-                'title' => $point['Station']['title'],
-                'type' => 'point',
-                'fare_midpoint_station_0' => 
-                    $this->putFareInfo(array_pad($samp = array(), 4, 0)),
-                'fare_midpoint_station_1' =>
-                    $this->putFareInfo(array_pad($samp = array(), 4, 0)),
-                'fare_abs' => '0',
-                'id' => $point['Station']['id'],
-                'lon' => $coordinate['lon'],
-                'lat' => $coordinate['lat']);
-
+            $points[] = $this->putPointInfo(array($point['Station']['id'], 
+                $point['Station']['title'], 'point',
+                $this->putFareInfo(array_pad($samp = array(), 4, 0)),
+                $this->putFareInfo(array_pad($samp = array(), 4, 0)),
+                0, $coordinate['lon'], $coordinate['lat'], 0, false));
         }
 
         return $points;
@@ -113,9 +106,9 @@ class Station extends AppModel {
                 !in_array($Point['station_0'], $uniqCheck)){
 
                 $uniqCheck[] = $info['station_0'];
-                $fareInfo = array('fare' => $info['fare'],
-                    'card_fare' => $info['card_fare'], 'child_fare' => $info['child_fare'],
-                    'child_card_fare' => $info['child_card_fare']);
+                $fareInfo = $this->putFareInfo(array($info['fare'],
+                    $info['card_fare'], $info['child_fare'],
+                    $info['child_card_fare']));
             }
 
         }
@@ -125,9 +118,9 @@ class Station extends AppModel {
                 !in_array($Point['station_1'], $uniqCheck)){
 
                 $uniqCheck[] = $info['station_0'];
-                $fareInfo = array('fare' => $info['fare'],
-                    'card_fare' => $info['card_fare'], 'child_fare' => $info['child_fare'],
-                    'child_card_fare' => $info['child_card_fare']);
+                $fareInfo = $this->putFareInfo(array($info['fare'],
+                    $info['card_fare'], $info['child_fare'],
+                    $info['child_card_fare']));
             }
 
         }
@@ -151,6 +144,7 @@ class Station extends AppModel {
             return array('lon' => $lonNum / $num, 'lat' => $latNum / $num);
     }
 
+    // ポイント情報挿入用関数
     function putPointInfo($point){
         $array = array();
 

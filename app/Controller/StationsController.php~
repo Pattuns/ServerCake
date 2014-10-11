@@ -145,90 +145,66 @@ class StationsController extends AppController {
         $stationIds[] = $this->request->query['station_0'];
         $stationIds[] = $this->request->query['station_1'];
 
-        $pointInfo = array_map(function($Id){
-            return $this->Station->findById($Id);
-        }, $stationIds);
-
-        foreach($pointInfo as $point){
-
-            $coordinate = $this->Station->find('stationLocation',array(
-                'conditions' => array('id' => $point['Station']['id'])));
-
-            $points[] = array(
-                'title' => $point['Station']['title'],
-                'type' => 'point',
-                'fare_midpoint_station_0' => 
-                $this->Station->putFareInfo(array_pad($samp = array(), 4, 0)),
-                    'fare_midpoint_station_1' =>
-                    $this->Station->putFareInfo(array_pad($samp = array(), 4, 0)),
-                    'fare_abs' => '0',
-                    'id' => $point['Station']['id'],
-                    'lon' => $coordinate['lon'],
-                    'lat' => $coordinate['lat']);
-
-        }
+        $points = $this->Station->getPointInfo($stationIds);
 
         $middleCoordinate = $this->Station->getMiddlePoint($points);
 
         $conskey = Configure::read("CONSKEY");
 
-        $url = "https://api.tokyometroapp.jp/api/v2/places?rdf:type=odpt:Station&lon=" . 
-            $middleCoordinate['lon'] . "&lat=" . $middleCoordinate['lat'] ."&radius=1000&acl:consumerKey="
-            . $conskey;
+        $radius = 1000;
 
-        $obj = json_decode(file_get_contents($url));
+        $midPointNum = 0;
 
-        $pointNames = array();
+        while($midPointNum < 5){
 
-        foreach($obj as $info){
-            $pointInfo = get_object_vars($info);
-            $pointName = $pointInfo['dc:title'];
-            if(!in_array($pointName, $pointNames))
-                $pointNames[] = $pointName;
+            $url = "https://api.tokyometroapp.jp/api/v2/places?rdf:type=odpt:Station&lon=" . 
+                $middleCoordinate['lon'] . "&lat=" . $middleCoordinate['lat'] ."&radius=" . 
+                $radius . "&acl:consumerKey=" . $conskey;
+
+            $obj = json_decode(file_get_contents($url));
+
+            $midPointNames = array();
+
+            foreach($obj as $info){
+                $midPointInfo = get_object_vars($info);
+                $pointName = $midPointInfo['dc:title'];
+                if(!in_array($pointName, $midPointNames))
+                    $midPointNames[] = $pointName;
+            }
+
+            $midPointNum = count($midPointNames);
+            $radius += 500;
+
         }
 
-        $pointInfo = array_map(function($pointName){
+        $midPointInfo = array_map(function($pointName){
             return $this->Station->findByTitle(" " . $pointName . " ");
-        }, $pointNames);
+        }, $midPointNames);
 
         $fareArray = array();
-        $out = array();
 
         $outArray = array();
 
-        foreach($pointInfo as $info){
-            $name = $info['Station']['title'];
-            $id = $info['Station']['id'];
+        foreach($midPointInfo as $info){
 
-            $out['id'] = $id;
-            $out['title'] = $name;
-            $out['type'] = 'midpoint';
-            $coordinate = $this->Station->find('stationLocation',array(
-                'conditions' => array('id' => $id)));
-
-            $out['lon'] = $coordinate['lon'];
-            $out['lat'] = $coordinate['lat'];
-
-            $out['fare_abs'] = 0;
-            $out['priority'] = true;
-
-            $fareArray = array_map(function($pointInfo) use (&$info){
-                return $this->Station->getFareById($info, $pointInfo['id']);
+            $fareArray = array_map(function($midPointInfo) use (&$info){
+                return $this->Station->getFareById($info, $midPointInfo['id']);
             }, $points);
 
-            // foreach($points as $point){
-            //     $stationId = $point['id'];
-            //
-            //     $fareArray[] = $this->Station->getFareById($info, $stationId);
-            //
-            //
-            // }
-            $out['fare_midpoint_station_0'] = $fareArray[0];
-            $out['fare_midpoint_station_1'] = $fareArray[1];
+            $coordinate = $this->Station->find('stationLocation',array(
+                'conditions' => array('id' => $info['Station']['id'])));
 
-            $outArray[] = $out;
+            $outArray[] = $this->Station->putPointInfo(array($info['Station']['id'],
+                $info['Station']['title'], 'midpoint',
+                $fareArray[0], $fareArray[1],
+                0, $coordinate['lon'], $coordinate['lat'],
+                0, true));
+
             $fareArray = array();
         }
+
+        foreach($points as $point)
+            $outArray[] = $point;
 
 
         $this->set(array('compare' => $outArray));
@@ -240,34 +216,15 @@ class StationsController extends AppController {
 
         $stationIds[] = $this->request->query['station_0'];
         $stationIds[] = $this->request->query['station_1'];
+        
+        $points = $this->Station->getPointInfo($stationIds);
 
         $fareInfo = array();
-
-        $pointInfo = array_map(function($Id){
-            return $this->Station->findById($Id);
-        }, $stationIds);
-
 
         $keys = array('station_0', 'station_1');
 
         $stationInfos_0 = $this->Station->ExtractInfo($pointInfo[0], $keys);
         $stationInfos_1 = $this->Station->ExtractInfo($pointInfo[1], $keys);
-
-        foreach($pointInfo as $point){
-
-            $points[] = array(
-                'title' => $point['Station']['title'],
-                'type' => 'point',
-                'fare_midpoint_station_0' => 
-                $this->Station->putFareInfo(array_pad($samp = array(), 4, 0)),
-                    'fare_midpoint_station_1' =>
-                    $this->Station->putFareInfo(array_pad($samp = array(), 4, 0)),
-                        'fare_abs' => '0',
-                        'id' => $point['Station']['id'],
-                        'lon' => $point['Place'][0]['lon'],
-                        'lat' => $point['Place'][0]['lat']);
-
-        }
 
         $middleCoordinate = $this->Station->getMiddlePoint($points);
         $tmp = array();
