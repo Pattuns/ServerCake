@@ -28,6 +28,18 @@
     'options' => $select1)); ?>
 
 <?php echo $this->Form->end('Distance'); ?>
+
+<br />
+
+<?php echo $this->Form->create('Station', array('type' => 'get',
+'action' => 'viewOutsideFacility.json')); ?>
+
+<?php echo $this->Form->input('station', array(
+    'type' => 'select',
+    'options' => $select0)); ?>
+
+<?php echo $this->Form->end('OutsideFacility'); ?>
+
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

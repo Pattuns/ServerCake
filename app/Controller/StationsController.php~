@@ -138,6 +138,58 @@ class StationsController extends AppController {
 
     }
 
+    public function viewInsideFacility(){
+
+        $stationId = $this->request->query['station'];
+
+        $stationInfo = Hash::combine($this->Station->findById($stationId), 'Place.{n}.id','Place.{n}.sameAs');
+
+        $stationAlias = trim(array_pop(explode('.',array_shift($stationInfo))));
+
+        $conskey = Configure::read("CONSKEY");
+
+        $url = "https://api.tokyometroapp.jp/api/v2/datapoints?rdf:type=odpt:StationFacility&"
+            . "owl:sameAs=odpt.StationFacility:TokyoMetro." . $stationAlias . "&acl:consumerKey=" . $conskey;
+
+        $obj = json_decode(file_get_contents($url));
+
+        debug($obj);
+
+    }
+
+    public function viewOutsideFacility(){
+
+        $stationId = $this->request->query['station'];
+
+        $coordinate = $this->Station->find('stationLocation',array(
+            'conditions' => array('id' => $stationId)));
+
+        $yappkey = Configure::read("YAPPKEY");
+
+        $radius = 3;
+
+        $url = "http://search.olp.yahooapis.jp/OpenLocalPlatform/V1/localSearch?appid="
+            . $yappkey . "&lat=" . $coordinate['lat'] . "&lon=" . $coordinate['lon'] . 
+            "&dist=" . $radius . "&gc=0115&results=5&sort=dist&output=json";
+
+        $obj = json_decode(file_get_contents($url));
+
+        $outArray = array();
+
+        foreach($obj->Feature as $info){
+            $out = array();
+            $out['id'] = $info->Id;
+            $out['name'] = $info->Name;
+            $geo = explode(',', $info->Geometry->Coordinates);
+
+
+            debug($geo);
+        }
+
+
+    }
+
+
     public function compareByDistance(){
 
         $stationIds = array();
