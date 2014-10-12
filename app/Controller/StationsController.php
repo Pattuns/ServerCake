@@ -278,8 +278,12 @@ class StationsController extends AppController {
 
         $keys = array('station_0', 'station_1');
 
-        $stationInfos_0 = $this->Station->ExtractInfo($pointInfo[0], $keys);
-        $stationInfos_1 = $this->Station->ExtractInfo($pointInfo[1], $keys);
+        $pointsInfo = array_map(function($id){
+            return $this->Station->findById($id);
+        }, $stationIds);
+
+        $stationInfos_0 = $this->Station->ExtractInfo($pointsInfo[0], $keys);
+        $stationInfos_1 = $this->Station->ExtractInfo($pointsInfo[1], $keys);
 
         $middleCoordinate = $this->Station->getMiddlePoint($points);
         $tmp = array();
