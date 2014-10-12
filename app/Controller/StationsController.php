@@ -144,16 +144,39 @@ class StationsController extends AppController {
 
         $stationInfo = Hash::combine($this->Station->findById($stationId), 'Place.{n}.id','Place.{n}.sameAs');
 
-        $stationAlias = trim(array_pop(explode('.',array_shift($stationInfo))));
+        $sameAs = array_shift($stationInfo);
 
         $conskey = Configure::read("CONSKEY");
 
-        $url = "https://api.tokyometroapp.jp/api/v2/datapoints?rdf:type=odpt:StationFacility&"
-            . "owl:sameAs=odpt.StationFacility:TokyoMetro." . $stationAlias . "&acl:consumerKey=" . $conskey;
+        $url = "https://api.tokyometroapp.jp/api/v2/datapoints?rdf:type=odpt:Station&"
+            . "owl:sameAs=" . trim($sameAs) . "&acl:consumerKey=" . $conskey;
 
         $obj = json_decode(file_get_contents($url));
 
-        debug($obj);
+        $info = get_object_vars(array_shift($obj));
+
+        $outArray = array();
+
+        foreach($info['odpt:exit'] as $exitId){
+
+            $out = array();
+
+            $exitUrl = "https://api.tokyometroapp.jp/api/v2/datapoints/"
+                . $exitId . "?acl:consumerKey=" . $conskey;
+
+            $exitInfo = json_decode(file_get_contents($exitUrl));
+
+            $exit = get_object_vars(array_shift($exitInfo));
+
+            $out['name'] = $exit['dc:title'];
+            $out['id'] = $exit['@id'];
+            $out['lat'] = $exit['geo:lat'];
+            $out['lon'] = $exit['geo:long'];
+
+            $outArray[] = $out;
+        }
+
+        $this->set(array('exit' => $outArray));
 
     }
 

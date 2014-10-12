@@ -32,13 +32,13 @@
 <br />
 
 <?php echo $this->Form->create('Station', array('type' => 'get',
-'action' => 'viewFacility.json')); ?>
+'action' => 'viewOutsideFacility.json')); ?>
 
 <?php echo $this->Form->input('station', array(
     'type' => 'select',
     'options' => $select0)); ?>
 
-<?php echo $this->Form->end('Facility'); ?>
+<?php echo $this->Form->end('OutsideFacility'); ?>
 
 </div>
 <div class="actions">
