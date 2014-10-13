@@ -155,15 +155,28 @@ class StationsController extends AppController {
 
         $info = get_object_vars(array_shift($obj));
 
+        $outArray = array();
+
         foreach($info['odpt:exit'] as $exitId){
+
+            $out = array();
 
             $exitUrl = "https://api.tokyometroapp.jp/api/v2/datapoints/"
                 . $exitId . "?acl:consumerKey=" . $conskey;
 
             $exitInfo = json_decode(file_get_contents($exitUrl));
 
-            debug($exitInfo);
+            $exit = get_object_vars(array_shift($exitInfo));
+
+            $out['name'] = $exit['dc:title'];
+            $out['id'] = $exit['@id'];
+            $out['lat'] = $exit['geo:lat'];
+            $out['lon'] = $exit['geo:long'];
+
+            $outArray[] = $out;
         }
+
+        $this->set(array('exit' => $outArray));
 
     }
 

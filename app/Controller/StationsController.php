@@ -193,7 +193,7 @@ class StationsController extends AppController {
 
         $url = "http://search.olp.yahooapis.jp/OpenLocalPlatform/V1/localSearch?appid="
             . $yappkey . "&lat=" . $coordinate['lat'] . "&lon=" . $coordinate['lon'] . 
-            "&dist=" . $radius . "&gc=0115&results=5&sort=dist&output=json";
+            "&dist=" . $radius . "&gc=0115&results=10&sort=dist&output=json";
 
         $obj = json_decode(file_get_contents($url));
 
