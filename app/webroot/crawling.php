@@ -3,7 +3,7 @@ require_once 'goutte.phar';
 
 use Goutte\Client;
 set_time_limit(0);
-$file = 'station_name.csv';
+$file = 'station_list.csv';
 $data = file_get_contents($file);
 
 $tmp = tmpfile();
@@ -23,7 +23,7 @@ while(($data = fgetcsv($tmp,0 ,","))!== FALSE){
 //
 $day = 24;
 
-$hour = 0;
+$hour = 5;
 
 $minutes = 0;
 
@@ -38,10 +38,10 @@ $client = new Client();
 
 $counter = 0;
 
-for($i = 0; $i < 2; $i++){
+// for($i = 0; $i < 2; $i++){
     $day += $i;
 
-    for($j = 0; $j < 24; $j++){
+    for($j = 0; $j < 11; $j++){
         $hour += $j;
 
         for($k = 0; $k < 6; $k++){
@@ -109,8 +109,8 @@ if($crawler->filter('div.h4Sec>div.routePattern')->count() != 0){
     $transitInfo[] = $departArriveStation->first()->text();
     $transitInfo[] = $departArriveStation->last()->text();
 
-    var_dump($transitInfo);
-    echo "<br />";
+    // var_dump($transitInfo);
+    // echo "<br />";
 
     fputcsv($fp,$transitInfo,'|');
 
@@ -154,7 +154,7 @@ if($crawler->filter('div.h4Sec>div.routePattern')->count() != 0){
             }
         }
     }
-}
+// }
 
 fclose($fp);
 
