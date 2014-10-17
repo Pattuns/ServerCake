@@ -117,6 +117,10 @@ class StationsController extends AppController {
             'fields' => array('id' , 'title')
         )));
 
+        $this->set('name', $this->Station->find('list', array(
+            'fields' => array('title', 'title')
+        )));
+
     }
 
     public function show($station_0, $station_1){
@@ -135,6 +139,28 @@ class StationsController extends AppController {
                 'conditions' => array('id' => $info['station_purpose_id'])));
             $stationInfo_array[] = $info;
         }
+
+    }
+
+    public function viewCoordinateById(){
+
+        $stationId = $this->request->query['station'];
+
+        $coordinate = $this->Station->find('stationLocation',array(
+            'conditions' => array('id' => $stationId)));
+
+        $this->set(array('coordinate' => $coordinate));
+
+    }
+
+    public function viewCoordinateByName(){
+
+        $stationName = $this->request->query['station'];
+
+        $coordinate = $this->Station->find('stationLocation',array(
+            'conditions' => array('title' => $stationName)));
+
+        $this->set(array('coordinate' => $coordinate));
 
     }
 

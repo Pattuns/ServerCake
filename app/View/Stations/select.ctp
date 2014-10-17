@@ -50,6 +50,28 @@
     'options' => $select0)); ?>
 
 <?php echo $this->Form->end('OutsideFacility'); ?>
+
+<br />
+
+<?php echo $this->Form->create('Station', array('type' => 'get',
+'action' => 'viewCoordinateById.json')); ?>
+
+<?php echo $this->Form->input('station', array(
+    'type' => 'select',
+    'options' => $select0)); ?>
+
+<?php echo $this->Form->end('Coordinate By Id'); ?>
+
+<br />
+
+<?php echo $this->Form->create('Station', array('type' => 'get',
+'action' => 'viewCoordinateByName.json')); ?>
+
+<?php echo $this->Form->input('station', array(
+    'type' => 'select',
+    'options' => $name)); ?>
+
+<?php echo $this->Form->end('Coordinate By Name'); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
