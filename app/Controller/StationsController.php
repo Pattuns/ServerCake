@@ -282,7 +282,7 @@ class StationsController extends AppController {
         }
 
         $midPointInfo = array_map(function($pointName){
-            return $this->Station->findByTitle(" " . $pointName . " ");
+            return $this->Station->findByTitle($pointName);
         }, $midPointNames);
 
         $fareArray = array();

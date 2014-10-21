@@ -160,8 +160,6 @@ class StationsController extends AppController {
         $coordinate = $this->Station->find('stationLocation',array(
             'conditions' => array('title' => $stationName)));
 
-        debug($coordinate);
-
         $this->set(array('coordinate' => $coordinate));
 
     }
