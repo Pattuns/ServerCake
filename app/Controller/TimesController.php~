@@ -216,8 +216,8 @@ class TimesController extends AppController {
             unset($timesInfo_1['Connect']);
             $timesInfo_1['Connect'] = $array;
         }
-        // debug($timesInfo_0);
-        // debug($timesInfo_1);
+        debug($timesInfo_0);
+        debug($timesInfo_1);
 
 		$this->set('timesInfo_0', $timesInfo_0);
 		$this->set('timesInfo_1', $timesInfo_1);

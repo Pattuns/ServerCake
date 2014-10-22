@@ -13,7 +13,7 @@ class Time extends AppModel {
         )
     );
 
-    public $belongsTo = array(
+    public $hasOne = array(
         'Depart' => array(
             'className' => 'Station',
             'foreignKey' => 'depart_station'

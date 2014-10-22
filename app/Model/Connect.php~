@@ -10,10 +10,6 @@ class Connect extends AppModel {
         'Time' => array(
             'className' => 'Time',
             'foreignKey' => 'time_id'
-        ),
-        'Station' => array(
-            'className' => 'Station',
-            'foreignKey' => 'station'
         )
     );
 }
