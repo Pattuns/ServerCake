@@ -2,7 +2,7 @@
 	<h2><?php echo __('Stations'); ?></h2>
 
 <?php echo $this->Form->create('Time', array('type' => 'get',
-'action' => 'compareByTime')); ?>
+'action' => 'compareByTime.json')); ?>
 
 <?php echo $this->Form->input('station_0', array(
     'type' => 'select',

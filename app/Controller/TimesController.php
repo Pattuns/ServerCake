@@ -15,7 +15,7 @@ class TimesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session');
+	public $components = array('Paginator', 'Session', 'RequestHandler');
 
 /**
  * index method
@@ -122,12 +122,27 @@ class TimesController extends AppController {
         $now = $this->request->query['now'];
 
         $this->Time->Arrive->recursive = 0;
+        $result = array_map(function($id){
+            return $this->Time->Arrive->findById($id);
+        }, $stationIds);
+
+        $this->Time->Arrive->recursive = 0;
         $temp = $this->Time->Arrive->findById($stationIds[0]);
-        $pointStationInfo[] = $temp['Arrive']['title'];
+        $coordinate = $this->Time->Arrive->find('stationLocation',array(
+            'conditions' => array('id' => $stationIds[0])));
+
+        $pointStationInfo[] = array('id' => $temp['Arrive']['id'],
+            'title' => $temp['Arrive']['title'],
+            'coordinate' => $coordinate);
 
         $this->Time->Arrive->recursive = 0;
         $temp = $this->Time->Arrive->findById($stationIds[1]);
-        $pointStationInfo[] = $temp['Arrive']['title'];
+        $coordinate = $this->Time->Arrive->find('stationLocation',array(
+            'conditions' => array('id' => $stationIds[1])));
+
+        $pointStationInfo[] = array('id' => $temp['Arrive']['id'],
+            'title' => $temp['Arrive']['title'],
+            'coordinate' => $coordinate);
 
         $timeInfoStation0 = Hash::combine($this->Time->find('all', array(
             'conditions' => array('depart_station' => $stationIds[0],
@@ -158,7 +173,8 @@ class TimesController extends AppController {
                     $spendSum = $station_0['spend'] + $station_1['spend'];
                     $this->Time->Arrive->recursive = 0;
                     $stationName = $this->Time->Arrive->findById($station_0['arrive_station']);
-
+                    $coordinate = $this->Time->Arrive->find('stationLocation',array(
+                        'conditions' => array('id' => $station_0['arrive_station'])));
 
                     $infoArray[$station_0['arrive_station']]['meetupTime'] = $meetupTime;
                     $infoArray[$station_0['arrive_station']]['arriveTimeStation0'] = $station_0['arrive'];
@@ -168,6 +184,7 @@ class TimesController extends AppController {
                     $infoArray[$station_0['arrive_station']]['abs'] = $abs;
                     $infoArray[$station_0['arrive_station']]['spend'] = $spendSum;
                     $infoArray[$station_0['arrive_station']]['station'] = $stationName['Arrive']['title'];
+                    $infoArray[$station_0['arrive_station']]['coordinate'] = $coordinate;
                 }
             }
         }
@@ -179,8 +196,11 @@ class TimesController extends AppController {
 
         array_multisort($Meetup, SORT_ASC, $Spend, SORT_ASC, $Abs, SORT_ASC, $infoArray);
 
-		$this->set('pointStationInfo', $pointStationInfo);
-		$this->set('meetupTimes', $infoArray);
+        $this->set('pointStationInfo', $pointStationInfo);
+        $this->set('meetupTimes', $infoArray);
+
+        $this->set(array('points' => $pointStationInfo));
+        $this->set(array('compare' => $infoArray));
 
     }
 
@@ -219,8 +239,10 @@ class TimesController extends AppController {
         // debug($timesInfo_0);
         // debug($timesInfo_1);
 
-		$this->set('timesInfo_0', $timesInfo_0);
-		$this->set('timesInfo_1', $timesInfo_1);
+		// $this->set('timesInfo_0', $timesInfo_0);
+		// $this->set('timesInfo_1', $timesInfo_1);
+        $this->set(array('routeInfoStation0' => $timesInfo_0));
+        $this->set(array('routeInfoStation1' => $timesInfo_1));
 
     }
 }

@@ -67,7 +67,12 @@ class Station extends AppModel {
                 $latNum += $place['lat'];
             }
 
+            if($num != 0){
             return array('lon' => $lonNum / $num, 'lat' => $latNum / $num);
+            }
+            else{
+                return array('lon' => 'null', 'lat' => 'null');
+            }
         }
     }
 

@@ -1,5 +1,5 @@
 <div class="times index">
-	<h2><?php echo __($pointStationInfo[0] . ' <=> ' . $pointStationInfo[1]); ?></h2>
+	<h2><?php echo __($pointStationInfo[0]['title'] . ' <=> ' . $pointStationInfo[1]['title']); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th>待ち合せ駅</th>

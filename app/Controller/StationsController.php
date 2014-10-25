@@ -14,7 +14,7 @@ class StationsController extends AppController {
      *
      * @var array
      */
-    public $components = array('Paginator', 'Session','RequestHandler');
+    public $components = array('Paginator', 'Session', 'RequestHandler');
 
     /**
      * index method
