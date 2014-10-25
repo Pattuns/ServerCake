@@ -4,6 +4,7 @@
 	<tr>
 			<th>待ち合せ駅</th>
 			<th>待ち合せ予定時間</th>
+            <th>JSON</th>
 	</tr>
     <?php foreach($meetupTimes as $meetupTime){ ?>
     <tr>
@@ -11,6 +12,10 @@
             'viewMeetup?stationTime_0=' . $meetupTime['station0']['id']
              . '&stationTime_1=' . $meetupTime['station1']['id']); ?></td>
         <td><?php echo $meetupTime['meetupTime']; ?></td>
+        <td><?php echo $this->Html->link('View JSON',
+            'viewMeetup.json?stationTime_0=' . $meetupTime['station0']['id']
+             . '&stationTime_1=' . $meetupTime['station1']['id']); ?></td>
+
     </tr>
     <?php } ?>
 	</table>

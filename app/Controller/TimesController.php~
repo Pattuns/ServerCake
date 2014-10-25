@@ -122,50 +122,30 @@ class TimesController extends AppController {
         $now = $this->request->query['now'];
 
         $this->Time->Arrive->recursive = 0;
-        $result = array_map(function($id){
-            return $this->Time->Arrive->findById($id);
+        $pointStationInfo = array_map(function($id){
+            $info = $this->Time->Arrive->findById($id);
+            $coordinate = $this->Time->Arrive->find('stationLocation',array(
+                'conditions' => array('id' => $id)));
+            return array('id' => $info['Arrive']['id'],
+            'title' => $info['Arrive']['title'],
+            'coordinate' => $coordinate);
         }, $stationIds);
-        debug($result);
 
-        $this->Time->Arrive->recursive = 0;
-        $temp = $this->Time->Arrive->findById($stationIds[0]);
-        $coordinate = $this->Time->Arrive->find('stationLocation',array(
-            'conditions' => array('id' => $stationIds[0])));
 
-        $pointStationInfo[] = array('id' => $temp['Arrive']['id'],
-            'title' => $temp['Arrive']['title'],
-            'coordinate' => $coordinate);
-
-        $this->Time->Arrive->recursive = 0;
-        $temp = $this->Time->Arrive->findById($stationIds[1]);
-        $coordinate = $this->Time->Arrive->find('stationLocation',array(
-            'conditions' => array('id' => $stationIds[1])));
-
-        $pointStationInfo[] = array('id' => $temp['Arrive']['id'],
-            'title' => $temp['Arrive']['title'],
-            'coordinate' => $coordinate);
-
-        $timeInfoStation0 = Hash::combine($this->Time->find('all', array(
-            'conditions' => array('depart_station' => $stationIds[0],
-                'now' => $now),
-            'recursive' => -1)), '{n}.Time.id', '{n}.Time');
-
-        $timeInfoStation1 = Hash::combine($this->Time->find('all', array(
-            'conditions' => array('depart_station' => $stationIds[1],
-                'now' => '05:00'),
-            'recursive' => -1)), '{n}.Time.id', '{n}.Time');
+        $stationTimeInfo = array_map(function($id) use ($now){
+            return Hash::combine($this->Time->find('all', array(
+                'conditions' => array('depart_station' => $id, 'now' => $now),
+                'recursive' => -1)), '{n}.Time.id', '{n}.Time');
+        }, $stationIds);
 
         $infoArray = array();
 
-        foreach($timeInfoStation0 as $station_0){
+        foreach($stationTimeInfo[0] as $station_0){
 
-            foreach($timeInfoStation1 as $station_1){
+            foreach($stationTimeInfo[1] as $station_1){
                 if($station_0['arrive_station'] == $station_1['arrive_station']){
                     $stationArriveTime_0 = strtotime($station_0['arrive']);
                     $stationArriveTime_1 = strtotime($station_1['arrive']);
-
-                    $meetupTimeStamp = ($stationArriveTime_0 > $stationArriveTime_1)?
-                        $stationArriveTime_0:$stationArriveTime_1;
 
                     $meetupTime = ($stationArriveTime_0 > $stationArriveTime_1)?
                         $station_0['arrive']:$station_1['arrive'];
