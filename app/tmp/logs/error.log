@@ -3897,3 +3897,48 @@ Request URL: /time%20jsons/compareByTime.json?station_0=8&station_1=3&now=05%3A1
 Stack Trace:
 #0 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-10-26 08:37:18 Error: [MissingControllerException] Controller class ApiKeyController could not be found.
+Exception Attributes: array (
+  'class' => 'ApiKeyController',
+  'plugin' => NULL,
+)
+Request URL: /api_key
+Stack Trace:
+#0 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-26 09:08:35 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/ApiKeys/show.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/ApiKeys/show.ctp',
+)
+Request URL: /api_keys/show
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(ApiKeysController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-26 09:09:05 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/ApiKeys/show.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/ApiKeys/show.ctp',
+)
+Request URL: /apikeys/show
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(ApiKeysController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-26 09:09:28 Error: [MissingViewException] View file "/vagrant/CakeMetoro/app/View/ApiKeys/show.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/CakeMetoro/app/View/ApiKeys/show.ctp',
+)
+Request URL: /apikeys/show
+Stack Trace:
+#0 /vagrant/CakeMetoro/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /vagrant/CakeMetoro/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#3 /vagrant/CakeMetoro/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(ApiKeysController), Object(CakeRequest), Object(CakeResponse))
+#4 /vagrant/CakeMetoro/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

@@ -8,15 +8,25 @@ class AppSchema extends CakeSchema {
 	public function after($event = array()) {
 	}
 
+	public $api_keys = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
+		'apikey' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+		'indexes' => array(
+			'PRIMARY' => array('column' => 'id', 'unique' => 1)
+		),
+		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'MyISAM')
+	);
+
 	public $connects = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => '0', 'key' => 'primary'),
 		'time_id' => array('type' => 'integer', 'null' => true, 'default' => null, 'key' => 'index'),
-		'station' => array('type' => 'integer', 'null' => true, 'default' => '0'),
+		'station' => array('type' => 'integer', 'null' => true, 'default' => '0', 'key' => 'index'),
 		'arrive' => array('type' => 'time', 'null' => true, 'default' => null),
 		'depart' => array('type' => 'time', 'null' => true, 'default' => null),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1),
-			'time_id' => array('column' => 'time_id', 'unique' => 0)
+			'time_id' => array('column' => 'time_id', 'unique' => 0),
+			'station' => array('column' => 'station', 'unique' => 0)
 		),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'MyISAM')
 	);

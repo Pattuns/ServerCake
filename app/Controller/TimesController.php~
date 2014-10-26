@@ -220,8 +220,8 @@ class TimesController extends AppController {
         // debug($timesInfo_0);
         // debug($timesInfo_1);
 
-		// $this->set('timesInfo_0', $timesInfo_0);
-		// $this->set('timesInfo_1', $timesInfo_1);
+		$this->set('timesInfo_0', $timesInfo_0);
+		$this->set('timesInfo_1', $timesInfo_1);
         $this->set(array('routeInfoStation0' => $timesInfo_0));
         $this->set(array('routeInfoStation1' => $timesInfo_1));
 
