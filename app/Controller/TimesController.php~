@@ -126,8 +126,6 @@ class TimesController extends AppController {
             $minutes = '00';
 
         $now = $hour . ":" .$minutes;
-echo $now;
-
 
         $this->Time->Arrive->recursive = 0;
         $pointStationInfo = array_map(function($id){

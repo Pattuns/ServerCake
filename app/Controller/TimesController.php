@@ -186,7 +186,7 @@ class TimesController extends AppController {
         $this->set('pointStationInfo', $pointStationInfo);
         $this->set('meetupTimes', $infoArray);
 
-        $this->set(array('points' => $pointStationInfo));
+        // $this->set(array('points' => $pointStationInfo));
         $this->set(array('compare' => $infoArray));
 
     }
