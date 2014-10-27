@@ -21,7 +21,7 @@ class PlacesController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function _index() {
 		$this->Place->recursive = 1;
         debug($this->Place->find('all'));
 		$this->set('places', $this->Paginator->paginate());
@@ -34,7 +34,7 @@ class PlacesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function _view($id = null) {
 		if (!$this->Place->exists($id)) {
 			throw new NotFoundException(__('Invalid place'));
 		}
@@ -47,7 +47,7 @@ class PlacesController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function _add() {
 		if ($this->request->is('post')) {
 			$this->Place->create();
 			if ($this->Place->save($this->request->data)) {
@@ -68,7 +68,7 @@ class PlacesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function _edit($id = null) {
 		if (!$this->Place->exists($id)) {
 			throw new NotFoundException(__('Invalid place'));
 		}
@@ -94,7 +94,7 @@ class PlacesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function _delete($id = null) {
 		$this->Place->id = $id;
 		if (!$this->Place->exists()) {
 			throw new NotFoundException(__('Invalid place'));

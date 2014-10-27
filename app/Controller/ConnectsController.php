@@ -21,7 +21,7 @@ class ConnectsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function _index() {
 		$this->Connect->recursive = 0;
 		$this->set('connects', $this->Paginator->paginate());
 	}
@@ -33,7 +33,7 @@ class ConnectsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function _view($id = null) {
 		if (!$this->Connect->exists($id)) {
 			throw new NotFoundException(__('Invalid connect'));
 		}
@@ -46,7 +46,7 @@ class ConnectsController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function _add() {
 		if ($this->request->is('post')) {
 			$this->Connect->create();
 			if ($this->Connect->save($this->request->data)) {
@@ -65,7 +65,7 @@ class ConnectsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function _edit($id = null) {
 		if (!$this->Connect->exists($id)) {
 			throw new NotFoundException(__('Invalid connect'));
 		}
@@ -89,7 +89,7 @@ class ConnectsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function _delete($id = null) {
 		$this->Connect->id = $id;
 		if (!$this->Connect->exists()) {
 			throw new NotFoundException(__('Invalid connect'));
@@ -103,7 +103,4 @@ class ConnectsController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
-    public function show(){
-        debug($this->Connect->find('all'));
-    }
 }

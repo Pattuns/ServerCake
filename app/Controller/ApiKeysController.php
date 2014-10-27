@@ -21,7 +21,7 @@ class ApiKeysController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function _index() {
 		$this->ApiKey->recursive = 0;
 		$this->set('apiKeys', $this->Paginator->paginate());
 	}
@@ -33,7 +33,7 @@ class ApiKeysController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function _view($id = null) {
 		if (!$this->ApiKey->exists($id)) {
 			throw new NotFoundException(__('Invalid api key'));
 		}
@@ -46,7 +46,7 @@ class ApiKeysController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function _add() {
 		if ($this->request->is('post')) {
 			$this->ApiKey->create();
 			if ($this->ApiKey->save($this->request->data)) {
@@ -65,7 +65,7 @@ class ApiKeysController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function _edit($id = null) {
 		if (!$this->ApiKey->exists($id)) {
 			throw new NotFoundException(__('Invalid api key'));
 		}
@@ -89,7 +89,7 @@ class ApiKeysController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function _delete($id = null) {
 		$this->ApiKey->id = $id;
 		if (!$this->ApiKey->exists()) {
 			throw new NotFoundException(__('Invalid api key'));

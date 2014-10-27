@@ -21,7 +21,7 @@ class StationsController extends AppController {
      *
      * @return void
      */
-    public function index() {
+    public function _index() {
         $this->Station->recursive = 0;
         // debug($this->Station->find('all'));
         // $this->set('stations', $this->Paginator->paginate());
@@ -37,7 +37,7 @@ class StationsController extends AppController {
      * @param string $id
      * @return void
      */
-    public function view($id = null) {
+    public function _view($id = null) {
         if (!$this->Station->exists($id)) {
             throw new NotFoundException(__('Invalid station'));
         }
@@ -50,7 +50,7 @@ class StationsController extends AppController {
      *
      * @return void
      */
-    public function add() {
+    public function _add() {
         if ($this->request->is('post')) {
             $this->Station->create();
             if ($this->Station->save($this->request->data)) {
@@ -69,7 +69,7 @@ class StationsController extends AppController {
      * @param string $id
      * @return void
      */
-    public function edit($id = null) {
+    public function _edit($id = null) {
         if (!$this->Station->exists($id)) {
             throw new NotFoundException(__('Invalid station'));
         }
@@ -93,7 +93,7 @@ class StationsController extends AppController {
      * @param string $id
      * @return void
      */
-    public function delete($id = null) {
+    public function _delete($id = null) {
         $this->Station->id = $id;
         if (!$this->Station->exists()) {
             throw new NotFoundException(__('Invalid station'));
@@ -120,25 +120,6 @@ class StationsController extends AppController {
         $this->set('name', $this->Station->find('list', array(
             'fields' => array('title', 'title')
         )));
-
-    }
-
-    public function show($station_0, $station_1){
-
-        $this->Station->recursive =1;
-        $temp = $this->Station->findById($station_0);
-        debug($temp);
-
-        $keys = array('station_0', 'station_1');
-        $stationInfo_0 = $this->Station->ExtractInfo(
-            $this->Station->findById($station_0),$keys);
-
-        $stationInfo_array = array();
-        foreach($stationInfo_0 as $info){
-            $info['title'] = $this->Station->find('stationName',array(
-                'conditions' => array('id' => $info['station_purpose_id'])));
-            $stationInfo_array[] = $info;
-        }
 
     }
 

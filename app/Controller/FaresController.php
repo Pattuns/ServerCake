@@ -21,9 +21,8 @@ class FaresController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function _index() {
 		$this->Fare->recursive = 1;
-        debug($this->Fare->find('all'));
 		$this->set('fares', $this->Paginator->paginate());
 	}
 
@@ -34,7 +33,7 @@ class FaresController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function _view($id = null) {
 		if (!$this->Fare->exists($id)) {
 			throw new NotFoundException(__('Invalid fare'));
 		}
@@ -47,7 +46,7 @@ class FaresController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function _add() {
 		if ($this->request->is('post')) {
 			$this->Fare->create();
 			if ($this->Fare->save($this->request->data)) {
@@ -66,7 +65,7 @@ class FaresController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function _edit($id = null) {
 		if (!$this->Fare->exists($id)) {
 			throw new NotFoundException(__('Invalid fare'));
 		}
@@ -90,7 +89,7 @@ class FaresController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function _delete($id = null) {
 		$this->Fare->id = $id;
 		if (!$this->Fare->exists()) {
 			throw new NotFoundException(__('Invalid fare'));
