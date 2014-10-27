@@ -186,8 +186,10 @@ class TimesController extends AppController {
         $this->set('pointStationInfo', $pointStationInfo);
         $this->set('meetupTimes', $infoArray);
 
+        $out = array('points' => $pointStationInfo,
+            'middle_points' => $infoArray);
         // $this->set(array('points' => $pointStationInfo));
-        $this->set(array('compare' => $infoArray));
+        $this->set(array('compare' => $out));
 
     }
 
@@ -228,8 +230,9 @@ class TimesController extends AppController {
 
 		$this->set('timesInfo_0', $timesInfo_0);
 		$this->set('timesInfo_1', $timesInfo_1);
-        $this->set(array('routeInfoStation0' => $timesInfo_0));
-        $this->set(array('routeInfoStation1' => $timesInfo_1));
+        $out = array('station_0' => $timesInfo_0,
+            'station_1' => $timesInfo_1);
+        $this->set(array('routeInfoStation' => $out));
 
     }
 }
